@@ -16,9 +16,6 @@ vim.opt.softtabstop = 4
 vim.opt.fillchars = { eob = " " }
 vim.opt.laststatus = 3
 
--- Misc
-vim.opt.autochdir = true
-
 -- ==================================================
 -- Keybinds
 -- ==================================================
@@ -30,9 +27,6 @@ vim.g.maplocalleader = " "
 -- Buffers
 vim.keymap.set("n", "<Tab>", "<cmd>bnext<CR>")
 vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<CR>")
-
--- Lsp
-vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
 
 -- ==================================================
 -- Plugins
@@ -118,13 +112,20 @@ snacks.setup {
     picker = {},
 }
 
-vim.keymap.set("n", "<leader>t", function() snacks.terminal.toggle() end)
 vim.keymap.set("n", "<leader>q", function() snacks.bufdelete() end)
+vim.keymap.set("n", "<leader>t", function() snacks.terminal.toggle() end)
 vim.keymap.set("n", "<leader>ff", function() snacks.picker.files() end)
 vim.keymap.set("n", "<leader>fg", function() snacks.picker.grep() end)
 vim.keymap.set("n", "<leader>fb", function() snacks.picker.buffers() end)
 vim.keymap.set("n", "<leader>fd", function() snacks.picker.diagnostics() end)
+vim.keymap.set("n", "<leader>gs", function() snacks.picker.git_status() end)
+vim.keymap.set("n", "<leader>gd", function() snacks.picker.git_diff() end)
 vim.keymap.set("n", "<leader>gl", function() snacks.picker.git_log() end)
+vim.keymap.set("n", "gd", function() snacks.picker.lsp_definitions() end)
+vim.keymap.set("n", "gD", function() snacks.picker.lsp_declarations() end)
+vim.keymap.set("n", "gr", function() snacks.picker.lsp_references() end)
+vim.keymap.set("n", "gi", function() snacks.picker.lsp_implementations() end)
+vim.keymap.set("n", "gca", vim.lsp.buf.code_action)
 
 -- Catppuccin (theme)
 
@@ -200,6 +201,8 @@ require("neo-tree").setup {
         },
     },
 }
+
+vim.opt.autochdir = true
 
 vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>")
 
@@ -293,23 +296,6 @@ vim.pack.add {
 local cmp = require "blink.cmp"
 cmp.build():pwait()
 cmp.setup()
-
--- Telescope (finder)
-
-vim.pack.add {
-    gh "nvim-telescope/telescope.nvim",
-    gh "nvim-telescope/telescope-ui-select.nvim",
-    gh "nvim-lua/plenary.nvim",
-    gh "nvim-telescope/telescope-fzf-native.nvim",
-}
-
-require("telescope").setup {
-    ["ui-select"] = {
-        require("telescope.themes").get_dropdown {},
-    },
-}
-
-require("telescope").load_extension("ui-select")
 
 -- Tiny Inline Diagnostic (diagnostic)
 
