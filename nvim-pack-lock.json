@@ -24,10 +24,6 @@
       "rev": "221ce6b2d999187044529f49da6554a92f740a96",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
-    "neo-tree.nvim": {
-      "rev": "760d9701953ad2b0277fe9776ba99bb011ecac2b",
-      "src": "https://github.com/nvim-neo-tree/neo-tree.nvim"
-    },
     "noice.nvim": {
       "rev": "7bfd942445fb63089b59f97ca487d605e715f155",
       "src": "https://github.com/folke/noice.nvim"
@@ -44,12 +40,8 @@
       "rev": "0dc0cfb0c6858041174a53c7aa4adaf65e994b3c",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
-    "plenary.nvim": {
-      "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
-      "src": "https://github.com/nvim-lua/plenary.nvim"
-    },
     "rustaceanvim": {
-      "rev": "cd58d8a4d82b67f046086eb78f04dd42058ccfcd",
+      "rev": "d4ade53789266bc54d4f194dc91f6c73233c327d",
       "src": "https://github.com/mrcjkb/rustaceanvim"
     },
     "snacks.nvim": {

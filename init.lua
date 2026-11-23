@@ -13,6 +13,8 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 
 -- Appearance
+vim.opt.list = true
+vim.opt.listchars = { space = "∙", tab = "»»" }
 vim.opt.fillchars = { eob = " " }
 vim.opt.laststatus = 3
 
@@ -43,7 +45,7 @@ vim.pack.add { gh "folke/snacks.nvim" }
 
 local snacks = require "snacks"
 snacks.setup {
-    bufdelete = { enabled = true },
+    bufdelete = {},
     dashboard = {
         width = 60,
         row = nil,
@@ -102,17 +104,29 @@ snacks.setup {
             { section = "keys",  gap = 1, padding = 1 },
         },
     },
+    explorer = {},
+    image = {},
     indent = {
         animate = {
             enabled = false,
         },
     },
-    terminal = {},
     notifier = {},
-    picker = {},
+    picker = {
+        toggles = {
+            hidden = false,
+        },
+        sources = {
+            explorer = {
+                hidden = true,
+            },
+        },
+    },
+    terminal = {},
 }
 
-vim.keymap.set("n", "<leader>q", function() snacks.bufdelete() end)
+vim.keymap.set("n", "<leader>e", function() snacks.explorer.open() end)
+vim.keymap.set("n", "<leader>x", function() snacks.bufdelete() end)
 vim.keymap.set("n", "<leader>t", function() snacks.terminal.toggle() end)
 vim.keymap.set("n", "<leader>ff", function() snacks.picker.files() end)
 vim.keymap.set("n", "<leader>fg", function() snacks.picker.grep() end)
@@ -150,14 +164,15 @@ require("catppuccin").setup {
             LineNrAbove = { fg = colors.overlay1 },
             LineNrBelow = { fg = colors.overlay1 },
 
-            -- Indent guides
+            -- Whitespace & Indentation
+            Whitespace = { fg = colors.surface2 },
             SnacksIndent = { fg = colors.overlay0 },
             SnacksIndentScope = { fg = colors.blue },
 
             -- Context menus
-            Pmenu = { bg = colors.mantle },
+            Pmenu = { bg = colors.surface0 },
             PmenuSel = { bg = colors.surface1 },
-            DropBarMenuNormalFloat = { bg = colors.mantle },
+            DropBarMenuNormalFloat = { bg = colors.surface0 },
             DropBarMenuCurrentContext = { bg = colors.surface1 },
 
             -- File explorer
@@ -183,29 +198,6 @@ require("catppuccin").setup {
 
 vim.cmd.colorscheme "catppuccin-mocha"
 
--- Neo-tree (file explorer)
-
-vim.pack.add {
-    gh "nvim-neo-tree/neo-tree.nvim",
-    gh "nvim-lua/plenary.nvim",
-    gh "MunifTanjim/nui.nvim",
-    gh "nvim-tree/nvim-web-devicons",
-}
-
-require("neo-tree").setup {
-    close_if_last_window = true,
-    filesystem = {
-        -- Make dotfiles visible by default
-        filtered_items = {
-            visible = true,
-        },
-    },
-}
-
-vim.opt.autochdir = true
-
-vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>")
-
 -- Lualine (statusline)
 
 vim.pack.add {
@@ -218,9 +210,6 @@ require("lualine").setup {
         theme = "catppuccin-nvim",
         component_separators = "│",
         section_separators = { left = "", right = "" },
-        disabled_filetypes = {
-            "neo-tree",
-        },
     },
     sections = {
         lualine_a = {
