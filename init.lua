@@ -13,8 +13,6 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 
 -- Appearance
-vim.opt.list = true
-vim.opt.listchars = { space = "∙", tab = "»»" }
 vim.opt.fillchars = { eob = " " }
 vim.opt.laststatus = 3
 
@@ -164,8 +162,7 @@ require("catppuccin").setup {
             LineNrAbove = { fg = colors.overlay1 },
             LineNrBelow = { fg = colors.overlay1 },
 
-            -- Whitespace & Indentation
-            Whitespace = { fg = colors.surface2 },
+            -- Indent guides
             SnacksIndent = { fg = colors.overlay0 },
             SnacksIndentScope = { fg = colors.blue },
 
