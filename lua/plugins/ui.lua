@@ -68,10 +68,12 @@ snacks.setup {
     picker = {
         toggles = {
             hidden = false,
+            ignored = false,
         },
         sources = {
             explorer = {
                 hidden = true,
+                ignored = true,
             },
         },
     },
@@ -80,7 +82,7 @@ snacks.setup {
 
 vim.keymap.set("n", "<leader>e", function() snacks.explorer.open() end)
 vim.keymap.set("n", "<leader>t", function() snacks.terminal.toggle() end)
-vim.keymap.set("n", "<leader>bd", function() snacks.bufdelete() end)
+vim.keymap.set("n", "<leader>x", function() snacks.bufdelete() end)
 vim.keymap.set("n", "<leader>ff", function() snacks.picker.files() end)
 vim.keymap.set("n", "<leader>fg", function() snacks.picker.grep() end)
 vim.keymap.set("n", "<leader>fb", function() snacks.picker.buffers() end)
@@ -92,7 +94,6 @@ vim.keymap.set("n", "gd", function() snacks.picker.lsp_definitions() end)
 vim.keymap.set("n", "gD", function() snacks.picker.lsp_declarations() end)
 vim.keymap.set("n", "gr", function() snacks.picker.lsp_references() end)
 vim.keymap.set("n", "gi", function() snacks.picker.lsp_implementations() end)
-vim.keymap.set("n", "gca", vim.lsp.buf.code_action)
 
 vim.api.nvim_create_autocmd('QuitPre', {
     callback = function()
@@ -135,7 +136,8 @@ require("catppuccin").setup {
             LineNrAbove = { fg = colors.overlay1 },
             LineNrBelow = { fg = colors.overlay1 },
 
-            -- Indent guides
+            -- Whitespace
+            Whitespace = { fg = colors.surface2 },
             SnacksIndent = { fg = colors.overlay0 },
             SnacksIndentScope = { fg = colors.blue },
 
