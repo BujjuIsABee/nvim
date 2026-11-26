@@ -17,7 +17,7 @@
       "src": "https://github.com/Bekaboo/dropbar.nvim"
     },
     "gitsigns.nvim": {
-      "rev": "c0862d382a35b7b45757d8d151a6a634c09bf3ce",
+      "rev": "166c03131e6a3528f692dd89f37668d991f17baa",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "lualine.nvim": {
@@ -41,7 +41,7 @@
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
     "rustaceanvim": {
-      "rev": "d4ade53789266bc54d4f194dc91f6c73233c327d",
+      "rev": "d2d04c81c36e2a7005f7794eea02a613dec575e8",
       "src": "https://github.com/mrcjkb/rustaceanvim"
     },
     "snacks.nvim": {
@@ -53,8 +53,12 @@
       "src": "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
     },
     "tiny-inline-diagnostic.nvim": {
-      "rev": "46ae9b3c8f3039e96ff4497d190ad0aee091f30d",
+      "rev": "6e8ced487784ddc1e2dabf58a379b3d84b333b16",
       "src": "https://github.com/rachartier/tiny-inline-diagnostic.nvim"
+    },
+    "trouble.nvim": {
+      "rev": "bd67efe408d4816e25e8491cc5ad4088e708a69a",
+      "src": "https://github.com/folke/trouble.nvim"
     }
   }
 }
