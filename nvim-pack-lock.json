@@ -41,7 +41,7 @@
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
     "rustaceanvim": {
-      "rev": "d2d04c81c36e2a7005f7794eea02a613dec575e8",
+      "rev": "280c3eceb0c37987fa72bbc3aa74665839480a6b",
       "src": "https://github.com/mrcjkb/rustaceanvim"
     },
     "snacks.nvim": {
